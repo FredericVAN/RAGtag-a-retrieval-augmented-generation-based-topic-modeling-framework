@@ -60,9 +60,6 @@ RAGtag comprises several key modules:
 * **Chain-of-Thought prompts** for enhanced reasoning
 
 
-'''
-
-'''
 
 ---
 
@@ -119,25 +116,3 @@ If you use this framework in your work, please cite:
 🏢 Affiliations: National Key Lab of Data Space Technology and System, AIBD, Beijing
 
 🙏 Thanks to the open-source communities of Qwen, Mistral, LangChain, LLM-Lingua, and Reflexion!
-
-
-
-flowchart TD
-    A[📥 Document Input]
-    A --> B[🧠 Compress Doc Module`<br>`LLMLingua 文本压缩]
-    B --> C[🔎 Generate Topic Module`<br>`RAG + Generator LLM]
-    C --> D[🔁 Merge Topic Module`<br>`Actor-Critic + DB API]
-    D --> E[🗂️ Topic Clusters]
-    E --> F[📊 Additional Merging (Optional)]
-
-    subgraph RAG Service
-        C1[Vectorization`<br>`Embedding Model]
-        C2[Hybrid Retrieval`<br>`Keyword + Vector]
-        C3[Re-Ranker]
-    end
-
-    C --> C1
-    C1 --> C2
-    C2 --> C3
-    C3 --> C
-    D -->|Uses| RAG Service
